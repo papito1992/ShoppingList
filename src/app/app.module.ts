@@ -14,6 +14,7 @@ import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import { DebuggingComponent } from './debugging/debugging.component';
 import {DropdownDirective} from './shared/dropdown.directive';
 import {ShoppinglistService} from './shopping-list/shoppinglist.service';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {ShoppinglistService} from './shopping-list/shoppinglist.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [ShoppinglistService],
   bootstrap: [AppComponent]

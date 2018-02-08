@@ -12,8 +12,7 @@ ingredients: Ingredient[];
   constructor(private slS: ShoppinglistService) { }
 
   ngOnInit() {
-    this.ingredients = this.slS.getIngredients();
-    this.slS.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {this.ingredients = ingredients; } );
+    this.ingredients = this.slS.getIngredient();
   }
 
 
