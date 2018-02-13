@@ -1,12 +1,11 @@
 import {Recipe} from './recipe.model';
-import {EventEmitter, Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {ShoppinglistService} from '../shopping-list/shoppinglist.service';
+import {Injectable} from '@angular/core';
 @Injectable()
 export class RecipeService {
-recipeSelected = new EventEmitter<Recipe>();
 
-  private _recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     new Recipe('Bulviniai blynai', 'Delicious Lithuanian food', 'https://g4.dcdn.lt/images/pix/pizapcom14769103024191-75724861.jpg', [
       new Ingredient('potatoes' , 10), new Ingredient('Eggs', 2), new Ingredient('Onion', 2), new Ingredient('Flour', 0.100)
     ]),
@@ -19,7 +18,10 @@ recipeSelected = new EventEmitter<Recipe>();
   constructor(private slS: ShoppinglistService) {}
 
 getRecipes() {
-    return this._recipes.slice();
+    return this.recipes.slice();
+  }
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
   addIngredientsToShoppingListMethod(ingredients: Ingredient[]) {
 this.slS.addIngredients1(ingredients);
